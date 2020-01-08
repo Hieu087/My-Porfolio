@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: scroll;
+}
+
+/* ---------------------------CONTAINER--------------------------- */
+.container {
+  width: 50em;
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 100%;
+  padding: 4em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  
+/* ---------------------------NAV--------------------------- */
+/* ---------------------------MAIN--------------------------- */
+}
+
+.container .nav {
+  margin: 2.5em 0;
+  margin-top: -5em;
+}
+
+.container .nav .icon {
+  text-decoration: none;
+  position: relative;
+  font-size: 2.5em;
+  margin: 0 1em;
+  color: rgba(93, 93, 207, 0.5);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.container .nav .icon::after {
+  content: "";
+  position: absolute;
+  width: 0em;
+  height: 0em;
+  background: white;
+  left: 0em;
+  bottom: -1.75em;
+  z-index: -1;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.container .nav .icon.active {
+  color: white;
+}
+
+.container .nav .icon.active::after {
+  width: 1em;
+  height: 1em;
+}
+
+.container .main {
+  color: #363131;
+  background: white;
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container .main #home {
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5em;
+}
+
+.container .main #home header {
+  width: 80%;
+}
+
+.container .main #home header h1, .container .main #home header p {
+  line-height: 2em;
+  margin-left: 50px;
+}
+/*# sourceMappingURL=style.css.map */

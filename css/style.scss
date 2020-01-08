@@ -1,0 +1,89 @@
+$text-color: rgb(54, 49, 49);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+
+/* ---------------------------CONTAINER--------------------------- */
+.container{
+    width: 50em;
+    margin: 0 auto;
+    min-height: 100vh;
+    max-width: 100%;
+    padding: 4em 0;
+    display: flex;		
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease-in-out;
+
+    /* ---------------------------NAV--------------------------- */
+        .nav{
+            margin: 2.5em 0;
+            margin-top: -5em;
+            .icon{
+                text-decoration: none;
+                position: relative;
+                font-size: 2.5em;
+                margin: 0 1em;
+                color: rgba(93, 93, 207, 0.5);
+                transition: all 0.3s;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 0em;
+                    height: 0em;
+                    background: white;
+                    left: 0em;
+                    bottom: -1.75em;
+                    z-index: -1;
+                    transform: rotate(45deg);
+                    transition: all 0.3s;
+                }
+    
+                &.active{
+                    color: white;
+                    &::after {
+                        width: 1em;
+                        height: 1em;
+                    }
+                }
+            }
+        }
+        
+    
+    /* ---------------------------MAIN--------------------------- */
+        .main{
+            color: $text-color;
+            background: white;
+            width: 100%;
+            height: 100%;
+            font-family: 'Open Sans', sans-serif;
+            #home{ 
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                font-size: 1.5em;
+                header{
+                    width: 80%;
+                    h1, p{
+                        line-height: 2em;
+                        margin-left: 50px;
+                    }
+                }
+            }
+        }
+        
+}
+
