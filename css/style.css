@@ -3,14 +3,15 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: url("../img/bg.jpg");
-  background-repeat: no-repeat;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5))), url("../img/310786.jpg");
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5)), url("../img/310786.jpg");
   background-size: cover;
   background-attachment: fixed;
-  overflow-y: scroll;
+  background-position: center;
 }
 
 /* ---------------------------CONTAINER--------------------------- */
@@ -30,19 +31,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
-  
-/* ---------------------------NAV--------------------------- */
-/* ---------------------------MAIN--------------------------- */
+  /* ---------------------------NAV--------------------------- */
+  /* ---------------------------MAIN--------------------------- */
 }
 
 .container .nav {
   margin: 2.5em 0;
-  margin-top: -5em;
+  margin-top: 4.5em;
 }
 
 .container .nav .icon {
@@ -50,7 +47,7 @@ body {
   position: relative;
   font-size: 2.5em;
   margin: 0 1em;
-  color: rgba(93, 93, 207, 0.5);
+  color: rgba(95, 95, 95, 0.5);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -82,20 +79,18 @@ body {
 .container .main {
   color: #363131;
   background: white;
-  width: 100%;
-  height: 100%;
   font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
 }
 
 .container .main #home {
   z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.5em;
+  -webkit-transition: all .5s;
+  transition: all .5s;
 }
 
 .container .main #home header {
@@ -105,5 +100,104 @@ body {
 .container .main #home header h1, .container .main #home header p {
   line-height: 2em;
   margin-left: 50px;
+}
+
+.container .main #home.appear {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .main #home.appear h1, .container .main #home.appear p {
+  -webkit-animation-name: screenAppear;
+          animation-name: screenAppear;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+
+.container .main #projects {
+  display: none;
+  z-index: 1;
+  padding: 2.5em;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.container .main #projects header h1, .container .main #projects header p {
+  line-height: 2em;
+}
+
+.container .main #projects .project-sec .work {
+  margin-bottom: 1px;
+}
+
+.container .main #projects .project-sec .work img {
+  width: 100%;
+}
+
+.container .main #projects.appear {
+  display: block;
+  -webkit-animation-name: screenAppear;
+          animation-name: screenAppear;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+
+.container .main #contact {
+  display: none;
+  z-index: 1;
+  padding: 2.5em;
+}
+
+.container .main #contact h1 {
+  width: 44.2vw;
+  margin-bottom: 1em;
+}
+
+.container .main #contact p {
+  padding: 0 1.5em;
+}
+
+.container .main #contact .line {
+  display: block;
+  content: " ";
+  width: 345px;
+  height: 0.4px;
+  margin: 1em 1.5em;
+  background-color: #363131;
+}
+
+.container .main #contact.appear {
+  display: block;
+  -webkit-animation-name: screenAppear;
+          animation-name: screenAppear;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+
+@-webkit-keyframes screenAppear {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes screenAppear {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */

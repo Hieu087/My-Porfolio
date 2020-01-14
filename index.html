@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/grid.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -15,21 +16,58 @@
 
         <!-- NAV -->
             <nav class="nav">
-                <a href="#" class="icon active"><i class="fas fa-user"></i></a>
-                <a href="#" class="icon"><i class="fas fa-folder"></i></a>
-                <a href="#" class="icon"><i class="fas fa-envelope"></i></a>
+                <a href="#" id="home-icon" class="icon active"><i class="fas fa-user"></i></a>
+                <a href="#" id="projects-icon" class="icon"><i class="fas fa-folder"></i></a>
+                <a href="#" id="contact-icon" class="icon"><i class="fas fa-envelope"></i></a>
             </nav>
 
         <!-- MAIN -->
             <div class="main">
-                <!-- Me -->
-                    <article id="home" class="panel">
+                <!-- About Me -->
+                    <article id="home" class="panel appear">
                         <header>
-                            <h1>My Porfolio</h1>
-                            <p>IT Student lorem ipsum dolor, amet consectetur adipisicing ipsum dolor amet officia end.</p>
+                            <h1>About Me</h1>
+                            <p>IT Student lorem ipsum dolor, amet consectetur 
+                                adipisicing ipsum dolor amet officia end.
+                            </p>
                         </header>
                         <img src="./img/me.jpg" alt="">
                     </article>
+
+                <!-- Projects -->
+                    <article id="projects" class="panel">
+                        <header>
+                            <h1>My Projects</h1>
+                            <p>Consectetur adipisicing ipsum dolor sit, amet consectetur 
+                                adipisicing elit. Ea, provident. ipsum dolor amet officia end.
+                            </p>
+                        </header>
+                        <div class="section project-sec">
+                            <div class="col span_1_of_2 work">
+                                <a href="#"><img src="./img/pic01.jpg" alt=""></a>
+                            </div>
+                            <div class="col span_1_of_2 work">
+                                <a href="#"><img src="./img/pic02.jpg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="section project-sec">
+                            <div class="col span_1_of_2 work">
+                                <a href="#"><img src="./img/pic03.jpg" alt=""></a>
+                            </div>
+                            <div class="col span_1_of_2 work">
+                                <a href="#"><img src="./img/pic04.jpg" alt=""></a>
+                            </div>
+                        </div>
+                    </article> 
+                    
+                <!-- Contact -->
+                    <article id="contact" class="panel">
+                        <h1>Contact me</h1>
+                        <p>Email: tthieu08079@gmail.com</p>
+                        <div class="line"></div>
+                        <p>Phone: 0946487259</p>
+                    </article>
+
             </div>
 
     </div>
