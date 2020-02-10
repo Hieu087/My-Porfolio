@@ -8,13 +8,19 @@
 
 body {
   overflow-y: scroll;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5))), url("../img/310786.jpg");
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5)), url("../img/310786.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  overflow-x: hidden;
+  background-color: #000000;
 }
 
+/* ---------------------------BACKGROUND--------------------------- */
+canvas {
+  z-index: -5;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ---------------------------CONTAINER--------------------------- */
 .container {
   width: 50em;
   margin: 0 auto;
@@ -33,11 +39,12 @@ body {
           align-items: center;
   -webkit-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
+  /* ---------------------------NAV--------------------------- */
+  /* ---------------------------MAIN--------------------------- */
 }
 
 .container .nav {
   margin: 2.5em 0;
-  margin-top: 4.5em;
 }
 
 .container .nav .icon {
@@ -113,6 +120,15 @@ body {
           animation-duration: 1.5s;
 }
 
+@media only screen and (max-width: 1023px) {
+  .container .main #home header {
+    text-align: center;
+  }
+  .container .main #home.appear {
+    display: block;
+  }
+}
+
 .container .main #projects {
   display: none;
   z-index: 1;
@@ -125,8 +141,8 @@ body {
   line-height: 2em;
 }
 
-.container .main #projects .project-sec .work {
-  margin-bottom: 1px;
+.container .main #projects header p {
+  margin-bottom: 1em;
 }
 
 .container .main #projects .project-sec .work a {
@@ -135,7 +151,7 @@ body {
 
 .container .main #projects .project-sec .work a img {
   width: 100%;
-  height: 32.5vh;
+  height: 30vh;
   -webkit-transition: all .5s;
   transition: all .5s;
 }
