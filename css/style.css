@@ -99,21 +99,101 @@ canvas {
 }
 
 .container .main #home header {
-  width: 80%;
-}
-
-.container .main #home header h1, .container .main #home header p {
-  line-height: 2em;
-  margin-left: 50px;
-}
-
-.container .main #home.appear {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.container .main #home.appear h1, .container .main #home.appear p {
+.container .main #home header img {
+  margin: 1.5em;
+  width: 30%;
+}
+
+.container .main #home header .introduce-text {
+  padding: 1.5em;
+  -webkit-box-shadow: -7.5px 0px 15px -10px #888888;
+          box-shadow: -7.5px 0px 15px -10px #888888;
+}
+
+.container .main #home header .introduce-text h3 {
+  margin-bottom: 1.25em;
+}
+
+.container .main #home header .introduce-text p {
+  font-size: 0.75em;
+}
+
+.container .main #home .skill {
+  background: #e2dddd;
+}
+
+.container .main #home .skill h1 {
+  text-transform: uppercase;
+  padding: 0.5em 1em;
+}
+
+.container .main #home .skill .progress li {
+  display: block;
+  padding: 1em;
+  margin: 0 2.5em;
+}
+
+.container .main #home .skill .progress li .icon-progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.container .main #home .skill .progress li .icon-progress .fab {
+  font-size: 2em;
+  margin: auto 0;
+}
+
+.container .main #home .skill .progress li .icon-progress p {
+  text-transform: uppercase;
+  margin: auto 1em;
+}
+
+.container .main #home .skill .progress li .bar {
+  background: white;
+  display: block;
+  height: 5px;
+  overflow: hidden;
+  width: 100%;
+  margin: auto 0em;
+  border-radius: 5px;
+}
+
+.container .main #home .skill .progress li .bar span {
+  height: 5px;
+  float: left;
+  background-image: -webkit-gradient(linear, left top, right top, from(#aaaaaa), color-stop(80%, #000000));
+  background-image: linear-gradient(to right, #aaaaaa, #000000 80%);
+}
+
+.container .main #home .skill .progress li .bar .java {
+  width: 75%;
+}
+
+.container .main #home .skill .progress li .bar .python {
+  width: 80%;
+}
+
+.container .main #home .skill .progress li .bar .js {
+  width: 50%;
+}
+
+.container .main #home .skill .progress li .bar .html {
+  width: 80%;
+}
+
+.container .main #home .skill .progress li .bar .css {
+  width: 90%;
+}
+
+.container .main #home.appear {
+  display: block;
   -webkit-animation-name: screenAppear;
           animation-name: screenAppear;
   -webkit-animation-duration: 1.5s;
