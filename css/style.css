@@ -168,20 +168,20 @@ canvas {
 .container .main #home .skill .progress li .bar span {
   height: 5px;
   float: left;
-  background-image: -webkit-gradient(linear, left top, right top, from(#aaaaaa), color-stop(80%, #000000));
-  background-image: linear-gradient(to right, #aaaaaa, #000000 80%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#aaaaaa), color-stop(80%, #363131));
+  background-image: linear-gradient(to right, #aaaaaa, #363131 80%);
 }
 
 .container .main #home .skill .progress li .bar .java {
-  width: 75%;
+  width: 65%;
 }
 
 .container .main #home .skill .progress li .bar .python {
-  width: 80%;
+  width: 70%;
 }
 
 .container .main #home .skill .progress li .bar .js {
-  width: 50%;
+  width: 55%;
 }
 
 .container .main #home .skill .progress li .bar .html {
@@ -190,6 +190,10 @@ canvas {
 
 .container .main #home .skill .progress li .bar .css {
   width: 90%;
+}
+
+.container .main #home .skill .progress li .bar .react {
+  width: 45%;
 }
 
 .container .main #home.appear {

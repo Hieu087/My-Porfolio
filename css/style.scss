@@ -129,13 +129,14 @@ canvas {
                                 span{
                                     height: 5px;
                                     float: left;
-                                    background-image: linear-gradient(to right, #aaaaaa, #000000 80%)
+                                    background-image: linear-gradient(to right, #aaaaaa, $text-color 80%)
                                 }
-                                .java{width: 75%;}
-                                .python{width: 80%;}
-                                .js{width: 50%;}
+                                .java{width: 65%;}
+                                .python{width: 70%;}
+                                .js{width: 55%;}
                                 .html{width: 80%;}
                                 .css{width: 90%;}
+                                .react{width: 45%;}
                             }
                         }
                     }
