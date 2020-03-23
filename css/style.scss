@@ -186,7 +186,7 @@ canvas {
                             .pj-detail{
                                 z-index: 2;
                                 position: absolute;
-                                bottom: 3.5em;
+                                top: -7.5em;
                                 left: 0;
                                 text-align: center;
                                 opacity: 0;
@@ -196,6 +196,9 @@ canvas {
                                     text-decoration: none;
                                     font-size: 0.75em;
                                     color: white;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
                                 }
                             }
                             &:hover{
