@@ -13,7 +13,7 @@ body{
     background-color: #0a0a05;
 }
 
-/* ---------------------------BACKGROUND--------------------------- */
+/* --------------------------- BACKGROUND --------------------------- */
 canvas {
     z-index: -5;
     position:absolute;
@@ -21,7 +21,7 @@ canvas {
     left:0
 }
 
-/* ---------------------------CONTAINER--------------------------- */
+/* --------------------------- CONTAINER --------------------------- */
 .container{
     width: 50em;
     margin: 0 auto;
@@ -33,7 +33,7 @@ canvas {
     align-items: center;
     transition: opacity 1s ease-in-out;
 
-    /* ---------------------------NAV--------------------------- */
+    /* --------------------------- NAVIGATION --------------------------- */
         .nav{
             margin: 2.5em 0;
             .icon{
@@ -67,12 +67,26 @@ canvas {
             }
         }
     
-    /* ---------------------------MAIN--------------------------- */
+    /* --------------------------- MAIN --------------------------- */
         .main{
+            // ---------- ANIMATION ----------
+            @keyframes screenAppear {
+                0%{
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
+                100%{
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+
             color: $text-color;
             background: white;
             font-family: 'Open Sans', sans-serif;
             font-size: 1.5em;
+
+            // ---------- HOME ----------
             #home{ 
                 z-index: 1;
                 display: none;
@@ -114,8 +128,9 @@ canvas {
                                     margin: auto 0;
                                 }
                                 p{
+                                    position: absolute;
                                     text-transform: uppercase;
-                                    margin: auto 1em;
+                                    margin: 0.5em 3em;
                                 }
                             }
                             .bar{
@@ -131,12 +146,13 @@ canvas {
                                     float: left;
                                     background-image: linear-gradient(to right, #aaaaaa, $text-color 80%)
                                 }
-                                .java{width: 65%;}
-                                .python{width: 70%;}
-                                .js{width: 55%;}
-                                .html{width: 80%;}
-                                .css{width: 90%;}
-                                .react{width: 45%;}
+                                .java   {width: 65%;}
+                                .python {width: 70%;}
+                                .html   {width: 80%;}
+                                .css    {width: 85%;}
+                                .scss   {width: 85%;}
+                                .js     {width: 55%;}
+                                .react  {width: 45%;}
                             }
                         }
                     }
@@ -145,21 +161,11 @@ canvas {
                 &.appear{
                     display: block;
                     animation-name: screenAppear;
-                    animation-duration: 1.5s;
-                    
+                    animation-duration: 1.5s; 
                 }
             }
-            @media only screen and (max-width:1023px){
-                #home{ 
-                    header{
-                        text-align: center;
-                    }
-                    &.appear{
-                        display: block;
-                    }
-                }
-            }
-
+           
+            // ---------- PROJECT ----------
             #projects{
                 display: none;
                 z-index: 1;
@@ -220,6 +226,7 @@ canvas {
                 }             
             }
 
+            // ---------- CONTACT ----------
             #contact{
                 display: none;
                 z-index: 1;
@@ -245,18 +252,19 @@ canvas {
                     animation-duration: 1.5s;
                 }  
             }
+        }
 
-            @keyframes screenAppear {
-                0%{
-                    transform: translateY(50px);
-                    opacity: 0;
+        // ---------- REPONSIVE ----------
+        @media only screen and (max-width:1023px){
+            #home{ 
+                header{
+                    text-align: center;
                 }
-                100%{
-                    transform: translateY(0px);
-                    opacity: 1;
+                &.appear{
+                    display: block;
                 }
             }
-        }
-        
+        }      
+
 }
 

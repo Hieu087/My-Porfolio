@@ -12,7 +12,7 @@ body {
   background-color: #0a0a05;
 }
 
-/* ---------------------------BACKGROUND--------------------------- */
+/* --------------------------- BACKGROUND --------------------------- */
 canvas {
   z-index: -5;
   position: absolute;
@@ -20,7 +20,7 @@ canvas {
   left: 0;
 }
 
-/* ---------------------------CONTAINER--------------------------- */
+/* --------------------------- CONTAINER --------------------------- */
 .container {
   width: 50em;
   margin: 0 auto;
@@ -39,8 +39,8 @@ canvas {
           align-items: center;
   -webkit-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
-  /* ---------------------------NAV--------------------------- */
-  /* ---------------------------MAIN--------------------------- */
+  /* --------------------------- NAVIGATION --------------------------- */
+  /* --------------------------- MAIN --------------------------- */
 }
 
 .container .nav {
@@ -86,6 +86,32 @@ canvas {
   background: white;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.5em;
+}
+
+@-webkit-keyframes screenAppear {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes screenAppear {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 .container .main #home {
@@ -151,8 +177,9 @@ canvas {
 }
 
 .container .main #home .skill .progress li .icon-progress p {
+  position: absolute;
   text-transform: uppercase;
-  margin: auto 1em;
+  margin: 0.5em 3em;
 }
 
 .container .main #home .skill .progress li .bar {
@@ -180,16 +207,20 @@ canvas {
   width: 70%;
 }
 
-.container .main #home .skill .progress li .bar .js {
-  width: 55%;
-}
-
 .container .main #home .skill .progress li .bar .html {
   width: 80%;
 }
 
 .container .main #home .skill .progress li .bar .css {
-  width: 90%;
+  width: 85%;
+}
+
+.container .main #home .skill .progress li .bar .scss {
+  width: 85%;
+}
+
+.container .main #home .skill .progress li .bar .js {
+  width: 55%;
 }
 
 .container .main #home .skill .progress li .bar .react {
@@ -202,15 +233,6 @@ canvas {
           animation-name: screenAppear;
   -webkit-animation-duration: 1.5s;
           animation-duration: 1.5s;
-}
-
-@media only screen and (max-width: 1023px) {
-  .container .main #home header {
-    text-align: center;
-  }
-  .container .main #home.appear {
-    display: block;
-  }
 }
 
 .container .main #projects {
@@ -319,29 +341,12 @@ canvas {
           animation-duration: 1.5s;
 }
 
-@-webkit-keyframes screenAppear {
-  0% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
-    opacity: 0;
+@media only screen and (max-width: 1023px) {
+  .container #home header {
+    text-align: center;
   }
-  100% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    opacity: 1;
-  }
-}
-
-@keyframes screenAppear {
-  0% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    opacity: 1;
+  .container #home.appear {
+    display: block;
   }
 }
 /*# sourceMappingURL=style.css.map */
