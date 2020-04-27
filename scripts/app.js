@@ -17,7 +17,6 @@ $(document).ready(function(){
                 $('.panel').removeClass('appear');
                 $('#contact').addClass('appear');
             }
-
         }
     )
 })
