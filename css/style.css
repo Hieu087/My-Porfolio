@@ -204,7 +204,7 @@ canvas {
 }
 
 .container .main #home .skill .progress li .bar .python {
-  width: 70%;
+  width: 75%;
 }
 
 .container .main #home .skill .progress li .bar .html {
@@ -220,11 +220,11 @@ canvas {
 }
 
 .container .main #home .skill .progress li .bar .js {
-  width: 55%;
+  width: 65%;
 }
 
 .container .main #home .skill .progress li .bar .react {
-  width: 45%;
+  width: 55%;
 }
 
 .container .main #home.appear {
@@ -256,6 +256,8 @@ canvas {
 }
 
 .container .main #projects .project-sec .work a img {
+  -webkit-box-shadow: 5px 5px 10px 0px #888888;
+          box-shadow: 5px 5px 10px 0px #888888;
   width: 100%;
   height: 30vh;
   -webkit-transition: all .5s;
@@ -315,16 +317,16 @@ canvas {
   padding: 2.5em;
 }
 
-.container .main #contact h1 {
+.container .main #contact .contact-container h1 {
   width: 44.2vw;
   margin-bottom: 1em;
 }
 
-.container .main #contact p {
+.container .main #contact .contact-container p {
   padding: 0 1.5em;
 }
 
-.container .main #contact .line {
+.container .main #contact .contact-container .line {
   display: block;
   content: " ";
   width: 345px;
@@ -347,6 +349,15 @@ canvas {
   }
   .container #home.appear {
     display: block;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .container #home header {
+    background-color: yellow;
+  }
+  .container #contact .contact-container {
+    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */
