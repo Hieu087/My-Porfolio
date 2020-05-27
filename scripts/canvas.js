@@ -203,7 +203,7 @@ $('.mode-switch').click(
             .add({
                 targets: '.mode-switch',
                 backgroundColor: 'rgba(0, 0, 0, 0.5)'
-            }, '-= 550')
+            }, '-= 500')
             // CHANGE ICON
             .add({
                 targets: '.sun-moon',
@@ -230,7 +230,7 @@ $('.mode-switch').click(
             .add({
                 targets: '.mode-switch',
                 backgroundColor: 'rgba(255, 255, 255, 0.5)'
-            }, '-= 550')
+            }, '-= 500')
             // CHANGE ICON
             .add({
                 targets: '.sun-moon',
