@@ -7,14 +7,28 @@
 
 // Terrain stuff.
 var background = document.getElementById("bgCanvas"),
+    lightMode = document.getElementById("light-mode").innerText.split(" "),
+    nightMode = document.getElementById("night-mode").innerText.split(" "),
     bgCtx = background.getContext("2d"),
     width = window.innerWidth,
     height = document.body.offsetHeight;
+
+// DEFAULT MODE
+var colorMode = nightMode;
 
 (height < 400) ? height = 400 : height;
 
 background.width = width;
 background.height = height;
+
+function modeSwitch() {
+    if(colorMode == lightMode)
+        colorMode = nightMode;
+    else
+        colorMode = lightMode;
+    
+    updateTerrain()
+}
 
 function Terrain(options) {
     options = options || {};
@@ -25,7 +39,7 @@ function Terrain(options) {
 
     this.terrain.width = width;
     this.terrain.height = height;
-    this.fillStyle = options.fillStyle || "#191D4C";
+    this.fillStyle = options.fillStyle || colorMode[3];
     this.mHeight = options.mHeight || height;
 
     // generate
@@ -76,7 +90,6 @@ Terrain.prototype.update = function () {
 
 
 // Second canvas used for the stars
-bgCtx.fillStyle = '#05004c';
 bgCtx.fillRect(0, 0, width, height);
 
 // stars
@@ -138,35 +151,117 @@ ShootingStar.prototype.update = function () {
     }
 }
 
-var entities = [];
+let entities = [];
 
-// init the stars
-for (var i = 0; i < height; i++) {
-    entities.push(new Star({
-        x: Math.random() * width,
-        y: Math.random() * height
-    }));
+function environment(){
+    // init the stars
+    for (var i = 0; i < height; i++) {
+        entities.push(new Star({
+            x: Math.random() * width,
+            y: Math.random() * height
+        }));
+    }
+
+    // Add 2 shooting stars that just cycle.
+    entities.push(new ShootingStar());
+    entities.push(new ShootingStar());
+    entities.push(new Terrain({mHeight : (height/2)-120}));
+    entities.push(new Terrain({displacement : 120, scrollDelay : 50, fillStyle : colorMode[2], mHeight : (height/2)-60}));
+    entities.push(new Terrain({displacement : 100, scrollDelay : 20, fillStyle : colorMode[1], mHeight : height/2}));
 }
 
-// Add 2 shooting stars that just cycle.
-entities.push(new ShootingStar());
-entities.push(new ShootingStar());
-entities.push(new Terrain({mHeight : (height/2)-120}));
-entities.push(new Terrain({displacement : 120, scrollDelay : 50, fillStyle : "rgb(17,20,40)", mHeight : (height/2)-60}));
-entities.push(new Terrain({displacement : 100, scrollDelay : 20, fillStyle : "rgb(10,10,5)", mHeight : height/2}));
+environment();
+
+function updateTerrain(){
+    entities[entities.length-1].fillStyle = colorMode[1]
+    entities[entities.length-2].fillStyle = colorMode[2]
+    entities[entities.length-3].fillStyle = colorMode[3]
+}
+
+// ICON CHANGING
+var night = true;
+moonPath = "M9 15.033C9 23.3172 15 30.033 15 30.033C6.71573 30.033 0 23.3172 0 15.033C0 6.74869 6.71573 0.032959 15 0.032959C15 0.032959 9 6.74869 9 15.033Z";
+sunPath = "M30 15.033C30 23.3172 23.2843 30.033 15 30.033C6.71573 30.033 0 23.3172 0 15.033C0 6.74869 6.71573 0.032959 15 0.032959C23.2843 0.032959 30 6.74869 30 15.033Z";
+
+$('.mode-switch').click(
+    function(){
+        const timeline = anime.timeline({
+            duration: 750,
+            easing: "easeOutExpo"
+        });
+        
+        // IF IT'S NIGHT TIME => CHANGE TO DAY TIME
+        if (night){
+            anime(
+                {
+                    targets: 'body',
+                    backgroundColor: '#008000'
+                }
+            )
+            timeline
+            // CHANGE BUTTON COLOR
+            .add({
+                targets: '.mode-switch',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)'
+            }, '-= 550')
+            // CHANGE ICON
+            .add({
+                targets: '.sun-moon',
+                d: [{value: moonPath}]
+            })
+            // ROTATE ICON
+            .add({
+                targets: '.mode',
+                rotate: 360,
+            }, '-= 350');
+
+            night = false
+        }
+        // IF IT'S DAY TIME => CHANGE TO NIGHT TIME
+        else{
+            anime(
+                {
+                    targets: 'body',
+                    backgroundColor: '#0a0a05',
+                }
+            )
+            timeline
+            // CHANGE BUTTON COLOR
+            .add({
+                targets: '.mode-switch',
+                backgroundColor: 'rgba(255, 255, 255, 0.5)'
+            }, '-= 550')
+            // CHANGE ICON
+            .add({
+                targets: '.sun-moon',
+                d: [{value: sunPath}]
+            })
+            // ROTATE ICON
+            .add({
+                targets: '.mode',
+                rotate: 0
+            }, '-= 350');
+            
+            night = true
+        }    
+    }
+)
 
 //animate background
 function animate() {
-    bgCtx.fillStyle = '#110E19';
+    bgCtx.fillStyle = colorMode[0];
     bgCtx.fillRect(0, 0, width, height);
-    bgCtx.fillStyle = '#ffffff';
-    bgCtx.strokeStyle = '#ffffff';
+    bgCtx.fillStyle = colorMode[4];
+    bgCtx.strokeStyle = colorMode[4];
 
     var entLen = entities.length;
-
+    var cnt = 0
     while (entLen--) {
         entities[entLen].update();
     }
     requestAnimationFrame(animate);
 }
 animate();
+
+
+

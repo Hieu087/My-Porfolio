@@ -1,4 +1,4 @@
-$text-color: rgb(54, 49, 49);
+$text-color: #363131;
 
 *{
     margin: 0;
@@ -8,6 +8,7 @@ $text-color: rgb(54, 49, 49);
 }
 
 body{
+    font-family: 'Open Sans', sans-serif;
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: #0a0a05;
@@ -32,253 +33,307 @@ canvas {
     flex-direction: column;
     align-items: center;
     transition: opacity 1s ease-in-out;
-
     /* --------------------------- NAVIGATION --------------------------- */
-        .nav{
-            margin: 2.5em 0;
-            .icon{
-                text-decoration: none;
-                position: relative;
-                font-size: 2.5em;
-                margin: 0 1em;
-                color: rgba(95, 95, 95, 0.5);
-                transition: all 0.3s;
+    .nav{
+        margin: 2.5em 0;
+        .icon{
+            text-decoration: none;
+            position: relative;
+            font-size: 2.5em;
+            margin: 0 1em;
+            color: rgba(95, 95, 95, 0.5);
+            transition: all 0.3s;
 
+            &::after {
+                content: "";
+                position: absolute;
+                width: 0em;
+                height: 0em;
+                background-color: white;
+                left: 0em;
+                bottom: -1.75em;
+                z-index: -1;
+                transform: rotate(45deg);
+                transition: all 0.3s;
+            }
+
+            &.active{
+                color: white;
                 &::after {
-                    content: "";
-                    position: absolute;
-                    width: 0em;
-                    height: 0em;
-                    background: white;
-                    left: 0em;
-                    bottom: -1.75em;
-                    z-index: -1;
-                    transform: rotate(45deg);
-                    transition: all 0.3s;
-                }
-    
-                &.active{
-                    color: white;
-                    &::after {
-                        width: 1em;
-                        height: 1em;
-                    }
+                    width: 1em;
+                    height: 1em;
                 }
             }
         }
-    
-    /* --------------------------- MAIN --------------------------- */
-        .main{
-            // ---------- ANIMATION ----------
-            @keyframes screenAppear {
-                0%{
-                    transform: translateY(50px);
-                    opacity: 0;
-                }
-                100%{
-                    transform: translateY(0px);
-                    opacity: 1;
-                }
+    }
+
+/* --------------------------- MAIN --------------------------- */
+    .main{
+        // ---------- ANIMATION ----------
+        @keyframes screenAppear {
+            0%{
+                transform: translateY(50px);
+                opacity: 0;
             }
-
-            color: $text-color;
-            background: white;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1.5em;
-
-            // ---------- HOME ----------
-            #home{ 
-                z-index: 1;
-                display: none;
-                align-items: center;
-                transition: all .5s;
-                header{
-                    display: flex;
-                    img{
-                        margin: 1.5em;
-                        width: 30%;
-                    }
-                    .introduce-text{
-                        padding: 1.5em;
-                        box-shadow: -7.5px 0px 15px -10px #888888;
-                        h3{
-                            margin-bottom: 1.25em;
-                        }
-                        p{
-                            font-size: 0.75em;
-                        }
-                    }
-                }
-                .skill{
-                    background: #e2dddd;
-                    h1{
-                        text-transform: uppercase;
-                        padding: 0.5em 1em;
-                    }
-                    .progress{                 
-                        li{
-                            display: block;
-                            padding: 1em;
-                            margin: 0 2.5em;
-                            .icon-progress{
-                                display: flex;
-                                margin-bottom: 1em;
-                                .fab{
-                                    font-size: 2em;
-                                    margin: auto 0;
-                                }
-                                p{
-                                    position: absolute;
-                                    text-transform: uppercase;
-                                    margin: 0.5em 3em;
-                                }
-                            }
-                            .bar{
-                                background: white;
-                                display: block;
-                                height: 5px;
-                                overflow: hidden;
-                                width: 100%;
-                                margin: auto 0em;
-                                border-radius: 5px;
-                                span{
-                                    height: 5px;
-                                    float: left;
-                                    background-image: linear-gradient(to right, #aaaaaa, $text-color 80%)
-                                }
-                                .java   {width: 65%;}
-                                .python {width: 75%;}
-                                .html   {width: 80%;}
-                                .css    {width: 85%;}
-                                .scss   {width: 85%;}
-                                .js     {width: 65%;}
-                                .react  {width: 55%;}
-                            }
-                        }
-                    }
-                }
-
-                &.appear{
-                    display: block;
-                    animation-name: screenAppear;
-                    animation-duration: 1.5s; 
-                }
+            100%{
+                transform: translateY(0px);
+                opacity: 1;
             }
-           
-            // ---------- PROJECT ----------
-            #projects{
-                display: none;
-                z-index: 1;
-                padding: 2.5em;
-                transition: all .5s;
-                header{
-                    h1, p{
-                        line-height: 2em;
+        }
+        color: $text-color;
+        background: white;
+        font-size: 1.5em;
+
+        // ---------- SWITCH MODE BUTTON ----------
+        .mode-switch{
+            outline: none;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            left: 17.5%;
+            padding: 9px 9.5px 0px 9.5px;
+            box-shadow: 1.5px 1.5px 2.5px rgba(0, 0, 0, 0.2);
+            border-radius: 100%;
+            cursor: pointer;
+            font-size: 30px;
+            transition: all .5s;
+        }
+
+        // ---------- HOME ----------
+        #home{ 
+            z-index: 1;
+            display: none;
+            align-items: center;
+            transition: all .5s;
+            header{
+                display: flex;
+                img{
+                    margin: 1.5em;
+                    width: 30%;
+                }
+                .introduce-text{
+                    padding: 1.5em;
+                    box-shadow: -7.5px 0px 15px -10px #888888;
+                    h3{
+                        margin-bottom: 1.25em;
                     }
                     p{
-                        margin-bottom: 1em;
+                        font-size: 0.75em;
                     }
                 }
-                .project-sec{
-                    .work{
-                        a{
-                            position: relative;
-                            img{
-                                box-shadow: 5px 5px 10px 0px #888888;
-                                width: 100%;
-                                height: 30vh;
-                                transition: all .5s;
-                            }
-                            .pj-detail{
-                                z-index: 2;
-                                position: absolute;
-                                top: -7.5em;
-                                left: 0;
-                                text-align: center;
-                                opacity: 0;
-                                transform: translateY(50px);
-                                transition: all 1s;
-                                p{
-                                    text-decoration: none;
-                                    font-size: 0.75em;
-                                    color: white;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                }
-                            }
-                            &:hover{
-                                .pj-detail{
-                                    opacity: 1;
-                                    transform: translateY(0);
-                                }
-                                img{
-                                    filter: blur(2.5px) brightness(50%);
-                                }
-                            }
-                        }   
-                    }
-                }
-                &.appear{
-                    display: block;
-                    animation-name: screenAppear;
-                    animation-duration: 1.5s;
-                }             
             }
-
-            // ---------- CONTACT ----------
-            #contact{
-                display: none;
-                z-index: 1;
-                padding: 2.5em;
-                .contact-container{
-                    h1{
-                        width: 44.2vw;
-                        margin-bottom: 1em;
-                    }
-                    p{
-                        padding: 0 1.5em;
-                    }
-                    .line{
+            .skill{
+                background: #e2dddd;
+                h1{
+                    text-transform: uppercase;
+                    padding: 0.5em 1em;
+                }
+                .progress{                 
+                    li{
                         display: block;
-                        content: " ";
-                        width: 345px;
-                        height: 0.4px;
-                        margin: 1em 1.5em;
-                        background-color: $text-color;   
-                    } 
+                        padding: 1em;
+                        margin: 0 2.5em;
+                        .icon-progress{
+                            display: flex;
+                            margin-bottom: 1em;
+                            .fab{
+                                font-size: 2em;
+                                margin: auto 0;
+                            }
+                            p{
+                                position: absolute;
+                                text-transform: uppercase;
+                                margin: 0.5em 3em;
+                            }
+                        }
+                        .bar{
+                            background: white;
+                            display: block;
+                            height: 5px;
+                            overflow: hidden;
+                            width: 100%;
+                            margin: auto 0em;
+                            border-radius: 5px;
+                            span{
+                                height: 5px;
+                                float: left;
+                                background-image: linear-gradient(to right, #aaaaaa, $text-color 80%)
+                            }
+                            .java   {width: 65%;}
+                            .python {width: 75%;}
+                            .html   {width: 85%;}
+                            .css    {width: 85%;}
+                            .scss   {width: 85%;}
+                            .js     {width: 65%;}
+                            .react  {width: 55%;}
+                        }
+                    }
                 }
-                &.appear{
+            }
+
+            &.appear{
+                display: block;
+                animation-name: screenAppear;
+                animation-duration: 1.5s; 
+            }
+        }
+        
+        // ---------- PROJECT ----------
+        #projects{
+            display: none;
+            z-index: 1;
+            padding: 2.5em;
+            transition: all .5s;
+            header{
+                h1{
+                    line-height: 2em;
+                }
+                p{
+                    font-size: 0.75em;
+                    margin-bottom: 2em;
+                }
+            }
+            .project-sec{
+                .work{
+                    a{
+                        position: relative;
+                        img{
+                            box-shadow: 0px 0px 10px rgba(136, 136, 136, 0.7);
+                            width: 100%;
+                            height: 30vh;
+                            transition: all .5s;
+                        }
+                        .pj-detail{
+                            z-index: 2;
+                            position: absolute;
+                            top: -7.5em;
+                            left: 0;
+                            text-align: center;
+                            opacity: 0;
+                            transform: translateY(50px);
+                            transition: all 1s;
+                            p{
+                                text-decoration: none;
+                                font-size: 0.75em;
+                                color: white;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        }
+                        &:hover{
+                            .pj-detail{
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                            img{
+                                filter: blur(2.5px) brightness(50%);
+                            }
+                        }
+                    }   
+                }
+            }
+            &.appear{
+                display: block;
+                animation-name: screenAppear;
+                animation-duration: 1.5s;
+            }             
+        }
+
+        // ---------- CONTACT ----------
+        #contact{
+            display: none;
+            z-index: 1;
+            padding: 2.5em;
+            .contact-container{
+                h1{
+                    width: 44.2vw;
+                    margin-bottom: 1em;
+                }
+                p{
+                    margin-left: 2.5em;
+                }
+                .line{
                     display: block;
-                    animation-name: screenAppear;
-                    animation-duration: 1.5s;
+                    content: " ";
+                    width: 345px;
+                    height: 0.4px;
+                    margin: 1em 2.5em;
+                    background-color: $text-color;   
                 } 
             }
+            &.appear{
+                display: block;
+                animation-name: screenAppear;
+                animation-duration: 1.5s;
+            } 
         }
+    }
 
-        // ---------- REPONSIVE ----------
-        @media only screen and (max-width:1023px){
-            #home{ 
-                header{
-                    text-align: center;
-                }
-                &.appear{
-                    display: block;
-                }
+    // ---------- REPONSIVE ----------
+    @media only screen and (max-width:1390px){
+        .main{
+            .mode-switch{
+                top: 20%;
+                left: 10%;
             }
         }
-        @media only screen and (max-width:375px){
+    }
+    @media only screen and (max-width:426px){
+        .main{
+            overflow-x: hidden;
+            font-size: 1.25em;
+            .mode-switch{
+                top: 2.5%;
+                left: 2.5%;
+            }
             #home{
                 header{
-                    background-color: yellow;
+                    display: block;
+                    img{
+                        margin: 1.25em 3em;
+                        width: 70%;
+                    }
                 }
             }
-            #contact{ 
+            #contact{
                 .contact-container{
-                    text-align: center;
+                    p{
+                        margin-left: 0;
+                    }
+                    .line{
+                        width: 290px;
+                        margin: 1em 0;
+                    } 
                 }
             }
-        }          
-
+        }
+    }
+    @media only screen and (max-width:320px){
+        .nav{
+            .icon{
+                font-size: 2.15em;
+            }
+        }
+        .main{
+            font-size: 1.25em;
+            #home{
+                header{
+                    img{
+                        margin: 1.25em 2.5em;
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }             
 }
+
+// ---------- FOOTER ----------
+footer{
+    text-align: center;
+    color: rgba(163, 163, 163, 0.5);
+}
+
+
 

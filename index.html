@@ -12,173 +12,187 @@
     <title>My Porfolio</title>
 </head>
 <body>
-    <canvas id="bgCanvas"></canvas>
-    <div class="container">
+    <canvas id="bgCanvas">
+        <p id="light-mode">#edf3f5 #008000 #18c218 #42e942 #edf3f5</p>
+        <p id="night-mode">#110E19 #0a0a05 #111428 #191D4C #ffffff</p>
+    </canvas>
 
+    <div class="container">
         <!-- NAV -->
-            <nav class="nav">
-                <a href="#" id="home-icon" class="icon active"><i class="fas fa-user"></i></a>
-                <a href="#" id="projects-icon" class="icon"><i class="fas fa-folder"></i></a>
-                <a href="#" id="contact-icon" class="icon"><i class="fas fa-envelope"></i></a>
-            </nav>
+        <nav class="nav">
+            <a href="#" id="home-icon" class="icon active"><i class="fas fa-user"></i></a>
+            <a href="#" id="projects-icon" class="icon"><i class="fas fa-folder"></i></a>
+            <a href="#" id="contact-icon" class="icon"><i class="fas fa-envelope"></i></a>
+        </nav>
 
         <!-- MAIN -->
-            <div class="main">
-                <!-- About Me -->
-                    <article id="home" class="panel appear">
-                        <header>
-                            <img src="./img/me2.jpg" alt="">
-                            <div class="introduce-text">
-                                <h1>TRẦN TRUNG HIẾU</h1>
-                                <h3>IT Student</h3>
-                                <p>IT Student lorem ipsum dolor, amet consectetur 
-                                    adipisicing ipsum dolor amet officia end. Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. 
-                                    Ipsa ut doloribus dolorem, possimus autem natus.
+        <div class="main">
+            <button class="mode-switch" onclick=modeSwitch()>
+                <svg class="mode" width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="sun-moon" d="M30 15.033C30 23.3172 23.2843 30.033 15 30.033C6.71573 30.033 0 23.3172 0 15.033C0 6.74869 6.71573 0.032959 15 0.032959C23.2843 0.032959 30 6.74869 30 15.033Z" fill="rgb(255, 255, 0)"/>
+                </svg>
+            </button>
+            <!-- About Me -->
+            <article id="home" class="panel appear">
+                <header>
+                    <img src="./img/me2.jpg" alt="">
+                    <div class="introduce-text">
+                        <h1>TRẦN TRUNG HIẾU</h1>
+                        <h3>IT Student</h3>
+                        <p>As a talented, ambitious and hardworking student, with intense passion
+                            to technology, I am able to handle multiple tasks on a daily basis 
+                            competently and working well under pressure. But I always keep in mind 
+                            that the key strength is communication, building strong relationships 
+                            with people in order to deliver the best results.
+                        </p>
+                    </div>
+                </header>
+                
+                <div class="skill">
+                    <h1>My Skills</h1>
+                    <div class="progress">
+                        <li>
+                            <div class="icon-progress">
+                                <i class="fab fa-java"></i><p>java</p>
+                            </div>
+                            <span class="bar">
+                                <span class="java"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <div class="icon-progress">
+                                <i class="fab fa-python"></i><p>python</p>
+                            </div>
+                            <span class="bar">
+                                <span class="python"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <div class="icon-progress">
+                                <i class="fab fa-html5"></i><p>html</p>
+                            </div>
+                            <span class="bar">
+                                <span class="html"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <div class="icon-progress">
+                                <i class="fab fa-css3-alt"></i><p>css</p>
+                            </div>
+                            <span class="bar">
+                                <span class="css"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <div class="icon-progress">
+                                <i class="fab fa-sass"></i><p>scss</p>
+                            </div>
+                            <span class="bar">
+                                <span class="scss"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <div class="icon-progress">
+                                <i class="fab fa-js-square"></i><p>javascript</p>
+                            </div>
+                            <span class="bar">
+                                <span class="js"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <div class="icon-progress">
+                                <i class="fab fa-react"></i><p>React</p>
+                            </div>
+                            <span class="bar">
+                                <span class="react"></span>
+                            </span>
+                        </li>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- Projects -->
+            <article id="projects" class="panel ">
+                <header>
+                    <h1>My Projects</h1>
+                    <p>For three years of being an IT student, 
+                        I have complete many great assignments and projects but these are the most 
+                        proudest projects I've ever made.
+                    </p>
+                </header>
+                <div class="section project-sec">
+                    <div class="col span_1_of_2 work">
+                        <a href="https://hieu087.github.io/Mavven/" target="_blank">
+                            <img src="./img/mavven.jpg" alt="">
+                            <div class="pj-detail">
+                                <p>- CLOTHES SHOP WEBSITE -<br>
+                                    One of my first front-end project, 
+                                    I only use the basic "tools" to develop it
+                                    like HTML5, CSS3, JS, Jquery,... But this is the 
+                                    fundamental premise for me to develop my front-end skill.
                                 </p>
                             </div>
-                        </header>
-                        
-                        <div class="skill">
-                            <h1>My Skills</h1>
-                            <div class="progress">
-                                <li>
-                                    <div class="icon-progress">
-                                        <i class="fab fa-java"></i><p>java</p>
-                                    </div>
-                                    <span class="bar">
-                                        <span class="java"></span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <div class="icon-progress">
-                                        <i class="fab fa-python"></i><p>python</p>
-                                    </div>
-                                    <span class="bar">
-                                        <span class="python"></span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <div class="icon-progress">
-                                        <i class="fab fa-html5"></i><p>html</p>
-                                    </div>
-                                    <span class="bar">
-                                        <span class="html"></span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <div class="icon-progress">
-                                        <i class="fab fa-css3-alt"></i><p>css</p>
-                                    </div>
-                                    <span class="bar">
-                                        <span class="css"></span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <div class="icon-progress">
-                                        <i class="fab fa-sass"></i><p>scss</p>
-                                    </div>
-                                    <span class="bar">
-                                        <span class="scss"></span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <div class="icon-progress">
-                                        <i class="fab fa-js-square"></i><p>javascript</p>
-                                    </div>
-                                    <span class="bar">
-                                        <span class="js"></span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <div class="icon-progress">
-                                        <i class="fab fa-react"></i><p>React</p>
-                                    </div>
-                                    <span class="bar">
-                                        <span class="react"></span>
-                                    </span>
-                                </li>
+                        </a>
+                    </div>
+                    <div class="col span_1_of_2 work">
+                        <a href="https://github.com/Hieu087/TicTacToe" target="_blank">
+                            <img src="./img/tictactoe.jpg" alt="">
+                            <div class="pj-detail">
+                                <p>- AI PLAY TIC TAC TOE - <br>
+                                    A 20x20 Tic Tac Toe game created by using Python and Pygame library (for GUI).
+                                    I used Minimax algorithm for computer be able to play the game perfectly.
+                                </p>
                             </div>
-                        </div>
-
-                    </article>
-
-                <!-- Projects -->
-                    <article id="projects" class="panel ">
-                        <header>
-                            <h1>My Projects</h1>
-                            <p>Consectetur adipisicing ipsum dolor sit, amet consectetur 
-                                adipisicing elit, provident ipsum dolor amet officia end.
-                            </p>
-                        </header>
-                        <div class="section project-sec">
-                            <div class="col span_1_of_2 work">
-                                <a href="https://hieu087.github.io/Mavven/" target="_blank">
-                                    <img src="./img/mavven.jpg" alt="">
-                                    <div class="pj-detail">
-                                        <p>- CLOTHES SHOP WEBSITE -<br>
-                                            Beacause this is one of my first front-end project 
-                                            I only use the basic "tools" to develop it
-                                            like HTML5, CSS3, JS, Jquery. But this is the 
-                                            fundamental premise for me to develop my front-end skill.
-                                        </p>
-                                    </div>
-                                </a>
+                        </a>
+                    </div>
+                </div>
+                <div class="section project-sec">
+                    <div class="col span_1_of_2 work">
+                        <a href="https://github.com/Hieu087/School-schedule" target="_blank">
+                            <img src="./img/timetable.jpg" alt="">
+                            <div class="pj-detail">
+                                <p>
+                                    <p>- SCHOOL SCHEDULE - <br>
+                                    Arrange the school schedule that is most convenient for students by
+                                    using Beam search.
+                                </p>
                             </div>
-                            <div class="col span_1_of_2 work">
-                                <a href="https://github.com/Hieu087/TicTacToe" target="_blank">
-                                    <img src="./img/tictactoe.jpg" alt="">
-                                    <div class="pj-detail">
-                                        <p>- AI PLAY TIC TAC TOE - <br>
-                                            My first AI project for school's midterm test. 
-                                            Create a 20x20 Tic Tac Toe game by using Python and Pygame library (for GUI).
-                                            I used Minimax algorithm for computer be able to play the game perfectly.
-                                        </p>
-                                    </div>
-                                </a>
+                        </a>
+                    </div>
+                    <div class="col span_1_of_2 work">
+                        <a href="https://github.com/Hieu087/Iris-classification" target="_blank">
+                            <img src="./img/iris.jpg" alt="">
+                            <div class="pj-detail">
+                                <p>
+                                    <p>- IRIS CLASSIFICATION - <br>
+                                    Classify three type of flowers of the iris family. I used three 
+                                    different algorithms for the most exact result.
+                                </p>
                             </div>
-                        </div>
-                        <div class="section project-sec">
-                            <div class="col span_1_of_2 work">
-                                <a href="#">
-                                    <img src="./img/pic04.jpg" alt="">
-                                    <div class="pj-detail">
-                                        <p>
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col span_1_of_2 work">
-                                <a href="#">
-                                    <img src="./img/pic02.jpg" alt="">
-                                    <div class="pj-detail">
-                                        <p>
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </article> 
-                    
-                <!-- Contact -->
-                    <article id="contact" class="panel">
-                        <div class="contact-container">
-                            <h1>Contact me</h1>
-                            <p>Email: tthieu08079@gmail.com</p>
-                            <div class="line"></div>
-                            <p>Phone: 0946487259</p>
-                        </div>
-                    </article>
-            </div>
-
-        
+                        </a>
+                    </div>
+                </div>
+            </article> 
             
-
+            <!-- Contact -->
+            <article id="contact" class="panel">
+                <div class="contact-container">
+                    <h1>Contact me</h1>
+                    <p>Email: tthieu08079@gmail.com</p>
+                    <div class="line"></div>
+                    <p>Phone: 0946487250</p>
+                </div>
+            </article>
+        </div>
     </div>
     
+    <footer>Copyright &copy; | Made by Tran Trung Hieu</footer>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="./scripts/app.js"></script>
+    <script src="./scripts/anime.min.js"></script>
     <script src="./scripts/canvas.js"></script>
+    <script src="./scripts/app.js"></script>
 
 </body>
 </html>
