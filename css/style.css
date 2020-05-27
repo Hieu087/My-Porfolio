@@ -149,6 +149,7 @@ canvas {
 .container .main #home header img {
   margin: 1.5em;
   width: 30%;
+  height: 100%;
 }
 
 .container .main #home header .introduce-text {
@@ -247,8 +248,8 @@ canvas {
   display: block;
   -webkit-animation-name: screenAppear;
           animation-name: screenAppear;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
 }
 
 .container .main #projects {
@@ -273,8 +274,8 @@ canvas {
 }
 
 .container .main #projects .project-sec .work a img {
-  -webkit-box-shadow: 0px 0px 10px rgba(136, 136, 136, 0.7);
-          box-shadow: 0px 0px 10px rgba(136, 136, 136, 0.7);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 30vh;
   -webkit-transition: all .5s;
@@ -324,8 +325,8 @@ canvas {
   display: block;
   -webkit-animation-name: screenAppear;
           animation-name: screenAppear;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
 }
 
 .container .main #contact {
@@ -356,8 +357,8 @@ canvas {
   display: block;
   -webkit-animation-name: screenAppear;
           animation-name: screenAppear;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
 }
 
 @media only screen and (max-width: 1390px) {
