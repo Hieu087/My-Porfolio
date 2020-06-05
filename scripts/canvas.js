@@ -192,12 +192,10 @@ $('.mode-switch').click(
         
         // IF IT'S NIGHT TIME => CHANGE TO DAY TIME
         if (night){
-            anime(
-                {
-                    targets: 'body',
-                    backgroundColor: '#008000'
-                }
-            )
+            anime({
+                targets: 'body',
+                backgroundColor: '#008000'
+            })
             timeline
             // CHANGE BUTTON COLOR
             .add({
@@ -208,7 +206,7 @@ $('.mode-switch').click(
             .add({
                 targets: '.sun-moon',
                 d: [{value: moonPath}]
-            })
+            }, '-= 250')
             // ROTATE ICON
             .add({
                 targets: '.mode',
@@ -219,12 +217,10 @@ $('.mode-switch').click(
         }
         // IF IT'S DAY TIME => CHANGE TO NIGHT TIME
         else{
-            anime(
-                {
-                    targets: 'body',
-                    backgroundColor: '#0a0a05',
-                }
-            )
+            anime({
+                targets: 'body',
+                backgroundColor: '#0a0a05',
+            })
             timeline
             // CHANGE BUTTON COLOR
             .add({
@@ -235,7 +231,7 @@ $('.mode-switch').click(
             .add({
                 targets: '.sun-moon',
                 d: [{value: sunPath}]
-            })
+            }, '-= 250')
             // ROTATE ICON
             .add({
                 targets: '.mode',

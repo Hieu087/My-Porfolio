@@ -113,6 +113,7 @@ canvas {
                     height: 100%;
                 }
                 .introduce-text{
+                    width: 70%;
                     padding: 1.5em;
                     box-shadow: -7.5px 0px 15px -10px #888888;
                     h3{
@@ -275,8 +276,8 @@ canvas {
     @media only screen and (max-width:1390px){
         .main{
             .mode-switch{
-                top: 20%;
-                left: 10%;
+                top: 2.5%;
+                left: 2.5%;
             }
         }
     }

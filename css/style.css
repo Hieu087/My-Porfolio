@@ -153,6 +153,7 @@ canvas {
 }
 
 .container .main #home header .introduce-text {
+  width: 70%;
   padding: 1.5em;
   -webkit-box-shadow: -7.5px 0px 15px -10px #888888;
           box-shadow: -7.5px 0px 15px -10px #888888;
@@ -363,8 +364,8 @@ canvas {
 
 @media only screen and (max-width: 1390px) {
   .container .main .mode-switch {
-    top: 20%;
-    left: 10%;
+    top: 2.5%;
+    left: 2.5%;
   }
 }
 
